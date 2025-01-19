@@ -13,6 +13,7 @@ scalar=pickle.load(open('scaling.pkl','rb'))
 def home():
     return render_template('home.html')
 
+#to run locally
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
     data=request.json['data']
@@ -23,6 +24,7 @@ def predict_api():
     print(output[0])
     return jsonify(output[0])
 
+#to run on web browser
 @app.route('/predict',methods=['POST'])
 def predict():
     data=[float(x) for x in request.form.values()]
